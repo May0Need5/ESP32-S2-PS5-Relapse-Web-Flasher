@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1 style="margin-bottom: 0;">ESP32-S2 PS5 Offline Relapse Exploit Host/Runner</h1>
+    <p style="margin-top: 0; border-bottom: 2px solid black;">with itsPLK's PS5 Payload Manager and added support for Y2JB method</p>
+
+    <p>Flashes the ESP32-S2 board with a 100% offline version of the PS5 Relapse Exploit and provides the network access point connection the console needs and 100% offline.</p>
+    <p>Launch the user guide and the exploit should go on its own. On success, the elfldr will be running on its usual port so if you want to push from a PC or something you can.</p>
+    <p>The only payload, aside from the two for the initial exploit, that is included is the pldmgr.elf.</p>
+    <p>This does not cache in the browser so hopefully if the chain fails in the user guide, you can restart the console without it hanging.</p>
+    <p>While improvements have been made with speed, it still is not as fast as using router or something for the network connection but for me, the trade off of keeping my console actually offline is pretty worth it.</p> 
+    <p>I have only tested on 13.42 but included all of the existing offsets for supported firmware. I think this was one of Sonic-Iso's hosts from some point in time with some of my edits made along the way.</p>
+    
+        <div id="main" style="display: none;">
+
+            <script type="module" src="https://unpkg.com/esp-web-tools@7.1.0/dist/web/install-button.js?module"></script>
+            
+            <esp-web-install-button id="installButton" style="display: flex; position: relative; margin-bottom: 10px;" manifest="bins/manifest.json"></esp-web-install-button>
+    
+            <span>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor) and you might ave to hold the boot button when clicking install. It will tell you.</span>
+        </div>
+        <div>
+            <ul>
+            <li>ssid = "ps5host"</li>
+            <li>password = "password"</li>
+            <li>local_IP(192, 168, 1, 1)</li>
+            <li>gateway(192, 168, 1, 1)</li>
+            <li>subnet(255, 255, 255, 0)</li>
+            </ul>
+            <p>Only tested on PS5 13.42 and the ESP32-S2 mini.</p>
+        </div>
+
+    <div id="notSupported" style="display: none;">
+        Your browser does not support the Web Serial API. Try Chrome
+    </div>
+   
+    <script>
+        if(navigator.serial){
+            document.getElementById("notSupported").style.display = 'none';
+            document.getElementById("main").style.display = 'block';
+            
+        } else {
+            document.getElementById("notSupported").style.display = 'block';
+            document.getElementById("main").style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

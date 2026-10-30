@@ -1,0 +1,28 @@
+{
+    "name": "ESP32S2_PS5_RelapseHost2",
+    "builds": [
+        {
+            "chipFamily": "ESP32-S2",
+            "new_install_prompt_erase": true,
+            "parts": [
+                {
+                    "path": "ESP32S2_PS5_OfflineRelapse.ino.bootloader.bin",
+                    "offset": 4096
+                },
+                {
+                    "path": "boot_app0.bin",
+                    "offset": 57344
+                },
+                {
+                    "path": "ESP32S2_PS5_OfflineRelapse.ino.partitions.bin",
+                    "offset": 32768
+                },
+                {
+                    "path": "ESP32S2_PS5_OfflineRelapse.ino.bin",
+                    "offset": 65536
+                }
+            ]
+        }
+    ]
+    
+}
